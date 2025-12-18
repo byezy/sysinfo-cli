@@ -1,6 +1,6 @@
 [package]
 name = "sysinfo-cli"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A lightweight, efficient, and professional CLI wrapper around the sysinfo crate."
 license = "MIT"
