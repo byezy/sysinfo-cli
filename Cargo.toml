@@ -1,0 +1,26 @@
+[package]
+name = "sysinfo-cli"
+version = "0.1.0"
+edition = "2024"
+description = "A lightweight, efficient, and professional CLI wrapper around the sysinfo crate."
+license = "MIT"
+repository = "https://github.com/byezy/sysinfo-cli"
+readme = "README.md"
+keywords = ["system", "metrics", "monitoring", "cli", "sysinfo"]
+categories = ["command-line-utilities", "os"]
+
+[dependencies]
+sysinfo = { version = "0.37.2", default-features = false, features = ["system", "disk", "network", "component"] }
+clap = { version = "4.5.31", features = ["derive"] }
+colored = "3.0.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+comfy-table = "7.1.3"
+
+[profile.tight]
+inherits = "release"
+opt-level = "z"     # Optimize for size
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce parallel code generation units to increase optimization
+panic = "abort"     # Remove panic string/unwinding for smaller binary
+strip = true        # Automatically strip symbols from the binary
